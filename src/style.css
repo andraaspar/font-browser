@@ -1,0 +1,63 @@
+@font-face {
+	font-family: 'MY_FALLBACK_FONT';
+	src: url('./MY_FALLBACK_FONT.woff2');
+}
+
+body {
+	margin: 0;
+}
+
+.header {
+	position: sticky;
+	top: 0;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 5px;
+	padding: 5px;
+	background: white;
+	border-bottom: 1px solid #aaa;
+}
+
+.sample-input {
+	flex: 1 1 auto;
+}
+
+.size-input {
+	width: 80px;
+}
+
+.fonts {
+	margin: 20px;
+}
+
+.font {
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.font-label {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 5px;
+	margin-bottom: 5px;
+}
+
+.font-label-right {
+	margin-left: auto;
+}
+
+.font-file {
+	font-family: monospace;
+}
+
+.font-type {
+	font-size: small;
+	color: #666;
+}
+
+.font-sample {
+	padding-left: 20px;
+	font-size: var(--font-sample--font-size);
+}

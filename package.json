@@ -1,0 +1,25 @@
+{
+	"private": true,
+	"name": "font-browser",
+	"main": "dist/index.html",
+	"dependencies": {
+		"lodash": "^4.17.21",
+		"matul": "^0.0.13"
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.14.192",
+		"@types/node": "^18.15.11",
+		"css-loader": "^6.7.3",
+		"html-webpack-plugin": "^5.5.0",
+		"nwjs-types": "^1.0.0",
+		"style-loader": "^3.3.2",
+		"ts-loader": "^9.4.2",
+		"typescript": "^5.0.4",
+		"webpack": "^5.78.0",
+		"webpack-cli": "^5.0.1"
+	},
+	"scripts": {
+		"build": "del /s /q dist && webpack",
+		"start": "c:\\Util\\nwjs-sdk-v0.75.0-win-x64\\nw.exe ."
+	}
+}
