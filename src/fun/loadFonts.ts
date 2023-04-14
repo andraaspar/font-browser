@@ -1,6 +1,7 @@
 import { exec } from 'child_process'
 
 export interface IFontInfo {
+	originalName: string
 	name: string
 	type: string
 	file: string
@@ -9,9 +10,10 @@ export interface IFontInfo {
 }
 
 const rowRe = /^\s*(.*?)\s+(\(.*?\)|)\s+REG_SZ\s+(.*)$/
-const boldRe = /\s+Bold(?:\s+(?:Italic|Oblique))?\s*$/
-const italicRe = /\s+(?:Italic|Oblique)\s*$/
-const truncateNameRe = /(?:\s+Bold)?(?:\s+(?:Italic|Oblique))?\s*$/
+const boldRe = /[- ]*Bold(?:[- ]*(?:Italic|Oblique))?\s*$/
+const italicRe = /[- ]*(?:Italic|Oblique)\s*$/
+const truncateNameRe =
+	/(?:[- ]*Regular)?(?:[- ]*Bold)?(?:[- ]*(?:Italic|Oblique))?\s*$/
 
 export function loadFonts() {
 	return new Promise<string>((resolve, reject) => {
@@ -61,7 +63,8 @@ function regexResultToFontInfo(r: string[]): IFontInfo {
 	const isBold = boldRe.test(name)
 	const isItalic = italicRe.test(name)
 	return {
-		name: isBold || isItalic ? name.replace(truncateNameRe, '') : name,
+		originalName: name,
+		name: name.replace(truncateNameRe, ''),
 		type: r[2],
 		file: r[3],
 		isBold: isBold,

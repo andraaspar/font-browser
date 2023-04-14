@@ -17,7 +17,7 @@ export const FontsComp: TRenderJSX<FontsCompProps, FontsCompState> = (_, v) => {
 						{font.isBold && <b> Bold</b>}
 						{font.isItalic && <i> Italic</i>}{' '}
 						<span class='font-label-right'>
-							<span class='font-type'>{font.type}</span>{' '}
+							<span class='font-type'>({font.originalName})</span>{' '}
 							<span class='font-file'>{font.file}</span>
 						</span>
 					</div>
